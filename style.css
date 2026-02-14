@@ -73,4 +73,11 @@ button:hover {
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
+    
+.finalText {
+    max-width: 600px;
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 1.6;
 }
+
