@@ -1,9 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff4d6d, #ff758f);
-    color: white;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .hero {
@@ -12,10 +10,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    color: white;
     text-align: center;
-
-    background: url("https://images.unsplash.com/photo-1518199266791-5375a83190b7")
-    center/cover no-repeat;
 }
 
 .title {
@@ -59,13 +56,21 @@ button:hover {
 
 .message {
     height: 100vh;
+    background: black;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: black;
+
+    animation: fadeIn 2s ease;
 }
 
 .hidden {
     display: none;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
