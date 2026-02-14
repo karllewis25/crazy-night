@@ -21,7 +21,6 @@ function moveButton() {
     button.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-// Quand elle clique OUI
 function yesClick() {
 
     document.getElementById("message").classList.remove("hidden");
@@ -36,7 +35,7 @@ function yesClick() {
     // Pluie de cœurs ❤️
     setInterval(() => {
         confetti({
-            particleCount: 5,
+            particleCount: 6,
             spread: 60,
             origin: {
                 x: Math.random(),
@@ -48,8 +47,9 @@ function yesClick() {
     }, 300);
 
     // Animation texte
-    gsap.from("#message h2", {
-        scale: 0,
+    gsap.from("#message", {
+        opacity: 0,
+        scale: 0.8,
         duration: 1
     });
 
