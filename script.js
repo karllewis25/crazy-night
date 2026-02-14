@@ -1,76 +1,56 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+// Animation entrée
+gsap.from(".title", {
+    y: -100,
+    opacity: 0,
+    duration: 1
+});
+
+gsap.from(".question", {
+    opacity: 0,
+    duration: 2,
+    delay: 0.5
+});
+
+// Bouton NON qui fuit
+function moveButton() {
+    const button = document.querySelector(".no");
+
+    const x = Math.random() * 400 - 200;
+    const y = Math.random() * 400 - 200;
+
+    button.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ff4d6d, #ff758f);
-    color: white;
-    text-align: center;
-}
+// Quand elle clique OUI
+function yesClick() {
 
-.title {
-    font-size: 4rem;
-    margin-bottom: 20px;
-}
+    document.getElementById("message").classList.remove("hidden");
 
-.question {
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
+    // Confettis 🎉
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
 
-.buttons {
-    display: flex;
-    gap: 20px;
-}
+    // Pluie de cœurs ❤️
+    setInterval(() => {
+        confetti({
+            particleCount: 5,
+            spread: 60,
+            origin: {
+                x: Math.random(),
+                y: Math.random() - 0.2
+            },
+            shapes: ["heart"],
+            colors: ["#ff4d6d", "#ff1744", "#ff758f"]
+        });
+    }, 300);
 
-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+    // Animation texte
+    gsap.from("#message h2", {
+        scale: 0,
+        duration: 1
+    });
 
-.yes {
-    background: #ff1744;
-    color: white;
-}
-
-.no {
-    background: white;
-    color: black;
-    position: relative;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-.message {
-    height: 100vh;
-    background: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    animation: fadeIn 2s ease;
-}
-
-.hidden {
-    display: none;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
 }
