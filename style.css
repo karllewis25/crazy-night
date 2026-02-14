@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .hero {
@@ -10,9 +10,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background: linear-gradient(135deg, #ff4d6d, #ff758f);
     color: white;
-    text-align: center;
 }
 
 .title {
@@ -56,28 +56,28 @@ button:hover {
 
 .message {
     height: 100vh;
-    background: black;
-    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    animation: fadeIn 2s ease;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1.5s ease;
 }
 
 .hidden {
     display: none;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-    
 .finalText {
     max-width: 600px;
     font-size: 1.3rem;
-    text-align: center;
     line-height: 1.6;
 }
 
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
